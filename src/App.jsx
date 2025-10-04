@@ -16,7 +16,7 @@ export default function App() {
   const [feedback, setFeedback] = useState("");
   const [theme, setTheme] = useState("dark");
 
-  const topics = ["Wellness", "Tech Trends", "History", "Science", "Data Structures", "Object Oriented Programming","Database Management Systems"];
+  const topics = ["Database Management Systems","Data Structures","History","Object Oriented Programming","Science","Tech Trends","Wellness"];
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
