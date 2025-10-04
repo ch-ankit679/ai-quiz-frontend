@@ -3,19 +3,23 @@
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  height: 100%;
   align-items: center;
   animation: fadeIn 0.5s ease-in-out;
+  overflow: hidden;
 }
 
 .quiz .question-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .quiz .question-header p {
   font-weight: 600;
   color: var(--text-color);
+  word-break: break-word;
 }
 
 .quiz .question-header progress {
@@ -42,6 +46,7 @@
   font-size: 1.3rem;
   color: var(--text-color);
   text-align: center;
+  word-break: break-word;
 }
 
 .quiz .options {
@@ -49,7 +54,19 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  max-height: 50vh; /* Limit options height */
+  overflow-y: auto; /* Scroll if too long */
   align-items: center;
+  padding-right: 5px;
+}
+
+.quiz .options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.quiz .options::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
 }
 
 .quiz .options button {
@@ -61,106 +78,29 @@
   text-align: left;
   color: var(--text-color);
   width: 90%;
+  max-width: 500px;
   transition: all 0.3s ease;
   cursor: pointer;
+  word-break: break-word;
 }
 
-/* Hover effect */
-.quiz .options button:hover:not(:disabled) {
-  border-color: var(--primary-color);
-  background: #e0f2fe;
-}
-
-body.dark .quiz .options button:hover:not(:disabled) {
-  background: #1f2937;
-}
-
-/* Selected (before showing correct) */
-.quiz .options button.selected {
-  background: linear-gradient(90deg, #3b82f6, #60a5fa);
-  color: var(--button-text);
-  border-color: var(--primary-hover);
-  animation: selectAnim 0.3s ease;
-}
-
-/* ✅ Correct Answer */
-.quiz .options button.correct {
-  background: #4caf50;
-  color: white;
-  border-color: #4caf50;
-}
-
-/* ❌ Wrong Answer */
-.quiz .options button.wrong {
-  background: #f44336;
-  color: white;
-  border-color: #f44336;
-}
-
-/* Disable clicks when showing answer */
-.quiz .options button:disabled {
-  opacity: 0.8;
-  cursor: not-allowed;
-}
-
-@keyframes selectAnim {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Navigation Buttons */
 .quiz .navigation {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.quiz .navigation button {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-}
-
-.quiz .navigation button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.quiz .navigation .prev {
-  background: #9ca3af;
-  color: white;
-}
-
-.quiz .navigation .prev:hover {
-  background: #6b7280;
-}
-
-.quiz .navigation .next {
-  background: var(--primary-color);
-  color: var(--button-text);
-}
-
-.quiz .navigation .next:hover {
-  background: var(--primary-hover);
-}
-
-.quiz .navigation .finish {
-  background: var(--secondary-color);
-  color: var(--button-text);
-}
-
-.quiz .navigation .finish:hover {
-  background: var(--secondary-hover);
-}
-
-/* ✅ Mobile Responsive Design */
+/* Mobile Responsive */
 @media (max-width: 768px) {
+  .quiz .options {
+    max-height: 45vh;
+  }
+
   .quiz h2 {
     font-size: 1.1rem;
-    text-align: center;
   }
 
   .quiz .options button {
@@ -172,10 +112,15 @@ body.dark .quiz .options button:hover:not(:disabled) {
   .quiz .navigation button {
     font-size: 0.9rem;
     padding: 8px 16px;
+    flex: 1 1 100%;
   }
 }
 
 @media (max-width: 480px) {
+  .quiz .options {
+    max-height: 40vh;
+  }
+
   .quiz .question-header {
     flex-direction: column;
     align-items: flex-start;
