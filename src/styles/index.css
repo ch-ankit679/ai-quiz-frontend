@@ -36,11 +36,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh; /* full height for vertical centering */
+  padding: 0.5rem; /* small padding to prevent edge overflow */
 }
 
 .container {
   width: 700px;
-  height: 600px;
+  max-width: 95%;
+  height: auto; /* adjust automatically */
+  max-height: 90vh; /* prevent overflow */
   padding: 2rem;
   background: var(--card-bg);
   border-radius: 12px;
@@ -48,6 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* vertical centering */
   animation: fadeIn 0.5s ease-in-out;
   transition: background 0.3s ease, color 0.3s ease;
   overflow: hidden;
@@ -56,37 +61,15 @@ body {
 
 .screen-content {
   width: 100%;
-  height: 100%;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-right: 10px;
-  scroll-behavior: smooth;
+  padding: 0;
+  overflow: visible; /* remove scrolling */
+  flex-wrap: wrap; /* allow content to wrap if needed */
 }
 
-/* Scrollbar Styling */
-.screen-content::-webkit-scrollbar {
-  width: 10px;
-}
-.screen-content::-webkit-scrollbar-track {
-  background: var(--card-bg);
-  border-radius: 10px;
-}
-.screen-content::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 10px;
-  transition: background 0.3s ease;
-}
-.screen-content::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-hover);
-}
-
-.screen-content {
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) var(--card-bg);
-}
-
+/* Fade-in animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -96,25 +79,41 @@ body {
 @media (max-width: 768px) {
   .container {
     width: 90%;
-    height: 550px;
+    height: auto;
+    max-height: 85vh;
     padding: 1.5rem;
+    justify-content: center;
   }
 
   .screen-content {
-    padding-right: 5px;
+    padding: 0;
   }
 }
 
 /* Responsive for Mobile Phones */
 @media (max-width: 480px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* full viewport height for vertical centering */
+    padding: 0.5rem; /* small padding to prevent touching edges */
+  }
+
   .container {
-    width: 95%;
-    height: 500px;
+    width: 90%;
+    height: auto;       /* allow height to adjust based on content */
+    max-height: 90vh;   /* prevent container from exceeding viewport */
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering inside container */
+    align-items: center;     /* horizontal centering inside container */
   }
 
   .screen-content {
     padding: 0;
+    overflow: visible; /* remove scrolling */
   }
 }
 
