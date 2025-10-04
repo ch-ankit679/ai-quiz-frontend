@@ -5,7 +5,7 @@ import Quiz from "./components/Quiz";
 import Result from "./components/Result";
 import ThemeToggle from "./components/ThemeToggle";
 import { fetchQuiz, fetchFeedback } from "./utils/api";
-import "./styles/index.css"
+import "./styles/index.css";
 export default function App() {
   const [step, setStep] = useState(1); // controls screens 1→2→3→4
   const [topic, setTopic] = useState("");
