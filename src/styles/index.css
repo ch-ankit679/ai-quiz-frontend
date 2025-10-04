@@ -36,7 +36,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
 }
 
 .container {
@@ -82,6 +81,7 @@ body {
 .screen-content::-webkit-scrollbar-thumb:hover {
   background: var(--primary-hover);
 }
+
 .screen-content {
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) var(--card-bg);
@@ -92,12 +92,11 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ✅ Tablets */
+/* Responsive for Tablets */
 @media (max-width: 768px) {
   .container {
     width: 90%;
-    height: auto;
-    min-height: 550px;
+    height: 550px;
     padding: 1.5rem;
   }
 
@@ -106,23 +105,16 @@ body {
   }
 }
 
-/* ✅ Mobile Phones */
+/* Responsive for Mobile Phones */
 @media (max-width: 480px) {
-  body {
-    align-items: flex-start;
-    padding: 0.5rem;
-  }
-
   .container {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
+    width: 95%;
+    height: 500px;
     padding: 1rem;
-    border-radius: 0;
-    box-shadow: none;
   }
 
   .screen-content {
     padding: 0;
   }
 }
+
