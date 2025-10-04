@@ -1,0 +1,48 @@
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-toggle button:hover {
+  background: #e5e7eb;
+}
+
+body.dark .theme-toggle button:hover {
+  background: #374151;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+  }
+
+  .theme-toggle button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+  }
+
+  .theme-toggle button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
