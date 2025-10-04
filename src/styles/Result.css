@@ -5,21 +5,16 @@
   align-items: center;
   animation: fadeIn 0.5s ease-in-out;
   text-align: center;
-  max-height: 80vh; /* Prevent overflow */
-  overflow-y: auto;
-  padding-right: 10px;
 }
 
 .result h1 {
   font-size: 2rem;
   color: var(--text-color);
-  word-break: break-word;
 }
 
 .result p {
   font-size: 1.2rem;
   color: var(--text-color);
-  word-break: break-word;
 }
 
 .result button {
@@ -39,12 +34,7 @@
   transform: translateY(-2px);
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
-  .result {
-    max-height: 75vh;
-  }
-
   .result h1 {
     font-size: 1.6rem;
   }
@@ -60,10 +50,6 @@
 }
 
 @media (max-width: 480px) {
-  .result {
-    max-height: 70vh;
-  }
-
   .result h1 {
     font-size: 1.3rem;
   }
